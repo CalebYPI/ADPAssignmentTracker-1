@@ -14,6 +14,6 @@ public class AdminFactoryTest {
         User user1 = createUser("Brandon", "Villet", "pass", "villetbrandon@gmail.com");//create user to insert into admin
         Admin admin = AdminFactory.createAdmin(user1, null);//did not create assigment because assignment requires a list of admin
         Assert.assertEquals(admin.getAssignment(),null);
-        System.out.println(admin.getId());
+        System.out.println(admin);
     }
 }//end of test class

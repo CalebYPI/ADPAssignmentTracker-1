@@ -6,12 +6,6 @@ public class Choice {
     private String name;
     private List <Vote> votes;
 
-    public Choice(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
-        this.votes = builder.votes;
-    }
-
     public int getId() {
         return id;
     }
@@ -27,9 +21,9 @@ public class Choice {
     @Override
     public String toString() {
         return "Choice{" +
-                "id=" + this.id +
-                ", name='" + this.name + '\'' +
-                ", votes=" + this.votes +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", votes=" + votes +
                 '}';
     }
     public static class Builder {
@@ -61,7 +55,12 @@ public class Choice {
         }
 
         public Choice build() {
-            return new Choice(this);
+            Choice choice = new Choice();
+            choice.id = this.id;
+            choice.name = this.name;
+            choice.votes = this.votes;
+
+            return choice;
         }
     }
 }

@@ -9,5 +9,4 @@ public interface IUserRepository extends IRepository<User, Integer> {
 
     Set<User> getAll();
 
-
 }

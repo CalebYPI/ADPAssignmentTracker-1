@@ -5,7 +5,7 @@ import org.assignmentTracker.entity.User;
 import org.assignmentTracker.entity.Vote;
 import org.assignmentTracker.factory.UserFactory;
 import org.assignmentTracker.factory.VoteFactory;
-import org.assignmentTracker.repository.vote.impl.VoteRepository;
+import org.assignmentTracker.repositoryTest.impl.VoteRepository;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

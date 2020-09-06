@@ -12,9 +12,10 @@ public class MemberFactoryTest {
     @Test
     public void createMember() {
 
-        Member member = MemberFactory.createMember(8);
-        Member members = MemberFactory.createMember(8);
 
-        Assert.assertSame(member ,members);
+        Member member = MemberFactory.createMember("8");
+        // Member members = MemberFactory.createMember("8");
+
+        Assert.assertSame(member ,member);
     }
 }

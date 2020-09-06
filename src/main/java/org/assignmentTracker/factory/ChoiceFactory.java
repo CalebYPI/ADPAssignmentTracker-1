@@ -11,7 +11,7 @@ import java.util.List;
  * Description: Choice factory
  */
 public class ChoiceFactory {
-    public static Choice createChoice(String name, List<Vote> votes){
+    public Choice choiceFactory(String name, List<Vote> votes){
         int choiceID = Helper.generateID();
         Choice choice = new Choice.Builder()
                 .setId(choiceID)

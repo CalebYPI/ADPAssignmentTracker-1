@@ -21,7 +21,7 @@ public class UserFactoryTest {
     public void createUser(){
         Date date = new Date();
         User user = UserFactory.createUser("Byron", "Cloete", "wordpass", "byroncloete7@gmail.com");
-        System.out.println(user.getID());
+
         Assert.assertTrue(user instanceof User);
     }
 }

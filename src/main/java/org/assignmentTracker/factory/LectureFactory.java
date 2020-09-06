@@ -13,7 +13,7 @@ public class LectureFactory {
 
     public  static Lecture newLecture(String name , String surname, String email, String cell_num , String room){
 
-        int id = Helper.generateID();
+        String id = Integer.toString(Helper.generateID());
         Lecture lecture = new Lecture.Builder()
                 .setId(id)
                 .setName(surname)

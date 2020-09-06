@@ -6,7 +6,7 @@ import org.assignmentTracker.entity.User;
 import org.assignmentTracker.factory.AssignmentFactory;
 import org.assignmentTracker.factory.SubjectFactory;
 import org.assignmentTracker.factory.UserFactory;
-import org.assignmentTracker.repository.assignment.impl.AssignmentRepository;
+import org.assignmentTracker.repositoryTest.impl.AssignmentRepository;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

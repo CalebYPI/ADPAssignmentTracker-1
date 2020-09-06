@@ -1,17 +1,8 @@
 package org.assignmentTracker.entity;
 
-/**
- * @author  @JustinKokolo
- * Student Number: 218044194
- * Desc: Lecture class
- * Date: 05 July 2020
- */
-
 public class Lecture {
 
-
-    private   int id;
-    private String  name ,surname ,email, cell_num , room;
+    String id , name ,surname ,email, cell_num , room;
 
 
     public Lecture(Builder builder) {
@@ -23,7 +14,7 @@ public class Lecture {
         this.room = builder.room;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -61,10 +52,9 @@ public class Lecture {
 
     public static class Builder{
 
-        int id;
-        String name ,surname ,email, cell_num , room;
+        String id , name ,surname ,email, cell_num , room;
 
-        public Builder setId(int id){
+        public Builder setId(String id){
             this.id = id;
             return  this;
         }

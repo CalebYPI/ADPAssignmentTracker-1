@@ -2,7 +2,7 @@ package org.assignmentTracker.repositoryTest;
 
 import org.assignmentTracker.entity.User;
 import org.assignmentTracker.factory.UserFactory;
-import org.assignmentTracker.repository.user.impl.UserRepository;
+import org.assignmentTracker.repositoryTest.impl.UserRepository;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -15,6 +15,7 @@ import java.util.Date;
 public class UserRepositoryTest {
 
     private static UserRepository repo = UserRepository.getRepo();
+    Date date = new Date();
     private static User user = UserFactory.createUser("Byron", "Cloete", "wordpass", "byroncloete7@gmail.com");
 
     @Test
