@@ -16,7 +16,7 @@ import java.util.List;
 public class AssignmentFactory {
 
     public static Assignment createAssignment(String name, Subject subject, Date dateAssigned,
-                                              List<Admin> admins, List<Member> members, User creator) {
+                                       List<Admin> admins, List<Member> members, User creator) {
         int id = Helper.generateAssignmentId();
         Assignment assignment = new Assignment.Builder()
                 .setId(id)

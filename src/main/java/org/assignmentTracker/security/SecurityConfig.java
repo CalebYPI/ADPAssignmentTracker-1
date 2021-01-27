@@ -20,11 +20,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("Byron")
+                .withUser("Caleb")
                 .password(encoder().encode("password"))
                 .roles(ADMIN_ROLE, USER_ROLE)
                 .and()
-                .withUser("Robyn")
+                .withUser("Byron")
                 .password(encoder().encode("wordpass"))
                 .roles(USER_ROLE);
     }
@@ -78,8 +78,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers(HttpMethod.POST, "/task/create/").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.PUT, "/task/update/").hasRole(USER_ROLE)
-                .antMatchers(HttpMethod.GET, "/task/read/").hasRole(USER_ROLE)
+                .antMatchers(HttpMethod.GET, "/task/read/**").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.GET, "/task/all/").hasRole(USER_ROLE)
+                .antMatchers(HttpMethod.GET, "/task/all/taskNumber").hasRole(USER_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/task/delete/**").hasRole(ADMIN_ROLE)
 
                 .and()

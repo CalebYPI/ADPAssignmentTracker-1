@@ -7,5 +7,4 @@ import java.util.Set;
 
 public interface TaskService extends IService<Task, Integer> {
     Set<Task> getAll();
-    Set<Task> getTaskNumber();
 }

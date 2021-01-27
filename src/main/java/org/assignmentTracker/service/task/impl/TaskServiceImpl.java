@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @Service
 public class TaskServiceImpl implements TaskService {
 
-    private static TaskServiceImpl service = null;
     @Autowired
     private ITaskRepository repository;
 
@@ -21,17 +20,6 @@ public class TaskServiceImpl implements TaskService {
     public Set<Task> getAll() {
 
         return this.repository.findAll().stream().collect(Collectors.toSet());
-    }
-
-    @Override
-    public Set<Task> getTaskNumber() {
-        Set<Task> tasks = getAll();
-        Set<Task> taskNumber = new HashSet<>();
-        for (Task task: tasks) {
-            if (task.getTaskId() == 2)
-                taskNumber.add(task);
-        }
-        return taskNumber;
     }
 
     @Override

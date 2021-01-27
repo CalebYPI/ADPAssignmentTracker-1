@@ -1,5 +1,6 @@
 package org.assignmentTracker.factory;
 
+import org.assignmentTracker.entity.Assignment;
 import org.assignmentTracker.entity.Task;
 import org.assignmentTracker.util.Helper;
 
@@ -10,13 +11,13 @@ import org.assignmentTracker.util.Helper;
  * */
 
 public class TaskFactory {
-    public static Task newTask(int assignmentId, long studentNumber, int memberId) {
+    public static Task createTask(int assignmentId, long studentNumber, int memberId) {
         int taskId = Helper.generateID();
         Task task = new Task.Builder()
                 .setTaskId(taskId)
                 .setAssignmentId(assignmentId)
-                .setMemberId(memberId)
                 .setStudentId(studentNumber)
+                .setMemberId(memberId)
                 .build();
         return task;
     }

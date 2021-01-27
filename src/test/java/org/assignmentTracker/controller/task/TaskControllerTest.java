@@ -1,12 +1,10 @@
 package org.assignmentTracker.controller.task;
 
-import org.assignmentTracker.entity.Assignment;
-import org.assignmentTracker.entity.Student;
-import org.assignmentTracker.entity.Subject;
-import org.assignmentTracker.entity.Task;
+import org.assignmentTracker.entity.*;
+import org.assignmentTracker.factory.AssignmentFactory;
 import org.assignmentTracker.factory.SubjectFactory;
 import org.assignmentTracker.factory.TaskFactory;
-import org.junit.Assert;
+import org.assignmentTracker.factory.UserFactory;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,10 +18,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.Instant;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -39,8 +34,17 @@ public class TaskControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseUrl = "http://localhost:8080/task";
+    Subject subject = SubjectFactory.createSubject("Application Development Practice", "ADP372S",
+            "Arinze Anikwue", new Date(4554564));
 
-    private static Task task = TaskFactory.newTask(1, 215169751, 6);
+    List<Admin> admins = new ArrayList<>();
+    List<Member> members = new ArrayList<>();
+    User user = UserFactory.createUser("William", "King", "passWill123", "williamK@cput.ac.za");
+
+    Assignment assignment = AssignmentFactory.createAssignment("ADP 372S Domain-Driven Design", subject,
+            new Date(4599564), admins, members, user);
+
+    private Task task = TaskFactory.createTask(1, 215169751, 6);
 
     @Test
     public void a_create() {

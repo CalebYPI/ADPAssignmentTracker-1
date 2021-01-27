@@ -8,6 +8,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
+/**
+* TaskController.java
+ *
+ * @author Caleb Ruiters
+ * student number: 215169751
+ * */
+
 @RestController
 @RequestMapping("/task")
 public class TaskController {
@@ -17,11 +24,12 @@ public class TaskController {
 
     @PostMapping("/create")
     public Task create(@RequestBody Task task){
-        Task createTask = TaskFactory.newTask(
+        Task newTask = TaskFactory.createTask(
                 task.getAssignmentId(),
-                task.getMemberId(),
-                task.getTaskId());
-        return taskService.create(task);
+                task.getStudentId(),
+                task.getMemberId()
+        );
+        return taskService.create(newTask);
     }
 
     @GetMapping("/read{id}")
@@ -35,4 +43,5 @@ public class TaskController {
 
     @GetMapping("/all")
     public Set<Task> getAll(){ return taskService.getAll(); }
+
 }

@@ -16,11 +16,64 @@ import java.util.Objects;
 public class Task {
     @Id
     private int taskId;
+
     private int assignmentId;
-    private int memberId;
     private long studentId;
+    private int memberId;
 
     protected Task() {
+    }
+
+    public Task(Builder builder) {
+        this.taskId = builder.taskId;
+        this.assignmentId = builder.assignmentId;
+        this.studentId = builder.studentId;
+        this.memberId = builder.memberId;
+    }
+
+    public static class Builder{
+        private int taskId;
+        private int assignmentId;
+        private long studentId;
+        private int memberId;
+
+        public Builder setTaskId(int taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+
+        public Builder setAssignmentId(int assignmentId) {
+            this.assignmentId = assignmentId;
+            return this;
+        }
+
+        public Builder setMemberId(int memberId) {
+            this.memberId = memberId;
+            return this;
+        }
+
+        public Builder setStudentId(long students) {
+            this.studentId = students;
+            return this;
+        }
+        public Task build() {
+            Task task = new Task();
+            task.taskId = this.taskId;
+            task.assignmentId = this.assignmentId;
+            task.studentId = this.studentId;
+            task.memberId = this.memberId;
+
+            return new Task(this);
+        }
+
+        public Builder copy(Task task) {
+            task.taskId = this.taskId;
+            task.assignmentId = this.assignmentId;
+            task.studentId = this.studentId;
+            task.memberId = this.memberId;
+
+            return this;
+        }
     }
 
     public int getTaskId() {
@@ -39,56 +92,13 @@ public class Task {
         return memberId;
     }
 
-    public static class Builder{
-        private int taskId, assignmentId, memberId;
-        private long students;
-
-        public Builder setTaskId(int taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-        public Builder setAssignmentId(int assignmentId) {
-            this.assignmentId = assignmentId;
-            return this;
-        }
-
-        public Builder setMemberId(int memberId) {
-            this.memberId = memberId;
-            return this;
-        }
-
-        public Builder setStudentId(long students) {
-            this.students = students;
-            return this;
-        }
-        public Task build() {
-            Task task = new Task();
-            task.assignmentId = this.assignmentId;
-            task.memberId = this.memberId;
-            task.taskId = this.taskId;
-            task.studentId = this.students;
-
-            return build();
-        }
-
-        public Builder copy(Task task) {
-            task.assignmentId = this.assignmentId;
-            task.memberId = this.memberId;
-            task.taskId = this.taskId;
-            task.studentId = this.students;
-
-            return this;
-        }
-    }
-
     @Override
     public String toString() {
         return "Task{" +
                 "TaskId=" + taskId +
                 ", AssignmentId=" + assignmentId +
-                ", MemberId=" + memberId +
                 ", students=" + studentId +
+                ", MemberId=" + memberId +
                 '}';
     }
 

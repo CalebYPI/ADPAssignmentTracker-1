@@ -17,7 +17,7 @@ public class Admin {
     @Id
     private  int id;
     @OneToOne
-    private  Assignment assignment;
+    private Assignment assignment;
     private  User user;
 
 
